@@ -1,4 +1,3 @@
-import ImageUploadInput from "@/components/ImageUploade";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,6 +6,7 @@ import { Send } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import ImageUploadInput from "../components/ImageUploade";
 
 const Update = () => {
   const { id } = useParams();

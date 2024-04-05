@@ -1,4 +1,3 @@
-import ImageUploadInput from "@/components/ImageUploade";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,6 +6,7 @@ import { Send } from "lucide-react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ImageUploadInput from "../components/ImageUploade";
 
 const Create = () => {
   const [userData, setUserData] = useState({});
