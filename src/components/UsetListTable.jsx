@@ -10,14 +10,22 @@ import {
 import { PencilLine, Trash2 } from "lucide-react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { deleteUser, showUser } from "../features/userDetailSlice";
-import { CreateUserDialog } from "./CreateUserDialog";
 import { Button } from "./ui/button";
 
 export function UserListTable() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { users, loading } = useSelector((state) => state.app);
-  console.log("🚀 ~ UserListTable ~ users:", users.data);
+
+  const handleDelete = (id) => {
+    dispatch(deleteUser(id));
+  };
+
+  const handleUpdate = (id) => {
+    navigate(`/update/${id}`);
+  };
 
   useEffect(() => {
     dispatch(showUser());
@@ -51,19 +59,14 @@ export function UserListTable() {
               </TableCell>
               <TableCell>{user.age}</TableCell>
               <TableCell className="text-right flex md:items-center md:justify-end gap-x-2 md:gap-x-4">
-                <CreateUserDialog
-                  id={user.id}
-                  action="update"
-                  triggerComponent={
-                    <Button variant="outline">
-                      <PencilLine className="w-4 h-4 mr-2" />
-                      Update
-                    </Button>
-                  }
-                />
+                <Button onClick={() => handleUpdate(user.id)} variant="outline">
+                  <PencilLine className="w-4 h-4 mr-2" />
+                  Update
+                </Button>
+
                 <Button
                   type="button"
-                  onClick={() => dispatch(deleteUser(user.id))}
+                  onClick={() => handleDelete(user.id)}
                   variant="destructive"
                 >
                   <Trash2 className="w-4 h-4 mr-2" />

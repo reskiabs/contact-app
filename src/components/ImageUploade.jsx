@@ -13,7 +13,7 @@ const ImageUploadInput = ({ onUpdate }) => {
       options={options}
       onUpdate={onUpdate}
       width="100%"
-      height="250px"
+      height="375px"
     />
   );
 };
