@@ -2,7 +2,7 @@ import { UploadDropzone } from "react-uploader";
 import { Uploader } from "uploader";
 
 export const uploader = Uploader({
-  apiKey: "public_kW15c192VWydQgo5Qhiye9VkNg74",
+  apiKey: "public_W142iZWBy99nRQoUoo6kRH91ZZ46",
 });
 
 const options = { multi: true };
